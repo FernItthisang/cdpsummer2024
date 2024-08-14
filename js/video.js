@@ -43,7 +43,7 @@ function playVideoWhenInView() {
                 video.pause();
             }
         });
-    }, { threshold: 0.5 }); // Adjust threshold as needed
+    }, { threshold: 0.5 });
 
     // Start observing #story1 only after minimal interaction
     if (interactionOccurred) {
@@ -51,16 +51,22 @@ function playVideoWhenInView() {
     }
 }
 
-// Automatically start video logic after mouse enters the story1 section
+// Automatically start video logic after minimal interaction
 document.addEventListener('DOMContentLoaded', function() {
-    function onMouseEnter() {
+    function onInteraction() {
         interactionOccurred = true;
         playVideoWhenInView();
         
-        // Remove mouseenter event listener after the first interaction
-        document.getElementById('story1').removeEventListener('mouseenter', onMouseEnter);
+        // Remove event listeners after the first interaction
+        window.removeEventListener('scroll', onInteraction);
+        window.removeEventListener('focus', onInteraction);
+        window.removeEventListener('click', onInteraction);
+        window.removeEventListener('mouseenter', onInteraction);
     }
 
-    // Listen for mouseenter event on the #story1 section
-    document.getElementById('story1').addEventListener('mouseenter', onMouseEnter);
+    // Listen for minimal user interaction like scroll, focus, click, or mouse enter
+    window.addEventListener('scroll', onInteraction, { once: true });
+    window.addEventListener('focus', onInteraction, { once: true });
+    window.addEventListener('click', onInteraction, { once: true });
+    window.addEventListener('mouseenter', onInteraction, { once: true });
 });
