@@ -5,6 +5,7 @@ let scene, camera, renderer, controls;
 let audioLoader, listener;
 let soundBarsMap = new Map();
 let progressBar, progressContainer, progressText;
+let audioBuffers = []; // To store preloaded audio buffers
 
 function init() {
     const container = document.getElementById('backgroundContainer');
@@ -32,35 +33,47 @@ function init() {
     directionalLight.position.set(0, 50, 50).normalize();
     scene.add(directionalLight);
 
-    // Create the dynamic grid and play all sounds together
-    createDynamicGrid();
-
-    // Add progress bar for the 10-second delay
-    createProgressBar();
+    // Preload audio files before creating the grid
+    preloadAudioFiles(() => {
+        createDynamicGrid(); // Create the dynamic grid and play all sounds together after preloading
+        startProgress(); // Start the progress bar after the grid is created
+    });
 
     window.addEventListener('resize', onWindowResize, false);
 
     // Prevent scrolling during progress
     preventScroll();
 
-    // Start the animation and progress immediately
-    startProgress();
-
     animate();
 }
 
-function createDynamicGrid() {
+function preloadAudioFiles(callback) {
     const audioFiles = [
         'asset/sound/noisy street.mp3', 'asset/sound/tuk tuk.mp3', 'asset/sound/market restaurant.mp3',
         'asset/sound/indoor market.mp3', 'asset/sound/chanbuying.mp3', 'asset/sound/bkk musical instrument stall.mp3',
         'asset/sound/fruit seller.mp3', 'asset/sound/lumphini selected.mp3', 'asset/sound/seafood.mp3'
     ];
 
+    let loadedCount = 0;
+
+    audioFiles.forEach((file, index) => {
+        audioLoader.load(file, (buffer) => {
+            audioBuffers[index] = buffer;
+            loadedCount++;
+
+            if (loadedCount === audioFiles.length) {
+                callback(); // All audio files are loaded, proceed with the callback
+            }
+        });
+    });
+}
+
+function createDynamicGrid() {
     const gridSize = 3;
     const spacing = 1; 
     const boxSize = 1; 
 
-    for (let i = 0; i < audioFiles.length; i++) {
+    for (let i = 0; i < audioBuffers.length; i++) {
         const row = Math.floor(i / gridSize);
         const col = i % gridSize;
 
@@ -70,20 +83,19 @@ function createDynamicGrid() {
         group.position.set(col * spacing - (gridSize * spacing) / 2, 0, row * spacing - (gridSize * spacing) / 2);
         scene.add(group);
 
-        audioLoader.load(audioFiles[i], async function(buffer) {
-            const sound = new THREE.PositionalAudio(listener);
-            sound.setBuffer(buffer);
-            sound.setLoop(true); 
-            sound.setRefDistance(20);
-            group.add(sound);
+        const buffer = audioBuffers[i]; // Use the preloaded buffer
+        const sound = new THREE.PositionalAudio(listener);
+        sound.setBuffer(buffer);
+        sound.setLoop(true); 
+        sound.setRefDistance(20);
+        group.add(sound);
 
-            soundBarsMap.set(sound, { sound, analyser: new THREE.AudioAnalyser(sound, 256), additionalBars: [] });
+        soundBarsMap.set(sound, { sound, analyser: new THREE.AudioAnalyser(sound, 256), additionalBars: [] });
 
-            const initialHeights = await analyzeInitialAudio(buffer, 9);
-            createBarsForSound(group, sound, material, initialHeights);
+        const initialHeights = analyzeInitialAudio(buffer, 9); // Synchronous buffer analysis
+        createBarsForSound(group, sound, material, initialHeights);
 
-            sound.play(); // Start playing sound immediately
-        });
+        sound.play(); // Start playing sound immediately
     }
 }
 
@@ -195,7 +207,7 @@ function onWindowResize() {
     renderer.setSize(window.innerWidth, window.innerHeight);
 }
 
-async function analyzeInitialAudio(buffer, numBars) {
+function analyzeInitialAudio(buffer, numBars) {
     const offlineContext = new OfflineAudioContext(1, buffer.length, buffer.sampleRate);
     const source = offlineContext.createBufferSource();
     source.buffer = buffer;
@@ -206,7 +218,7 @@ async function analyzeInitialAudio(buffer, numBars) {
     analyser.connect(offlineContext.destination);
     source.start(0);
 
-    await offlineContext.startRendering();
+    offlineContext.startRendering();
 
     const frequencyData = new Uint8Array(analyser.frequencyBinCount);
     analyser.getByteFrequencyData(frequencyData);
@@ -215,15 +227,11 @@ async function analyzeInitialAudio(buffer, numBars) {
     const heights = [];
     for (let i = 0; i < numBars; i++) {
         const height = frequencyData[i * step] / 256;
-        if (Number.isFinite(height)) {
-            heights.push(height);
-        } else {
-            console.warn('Invalid height value:', height);
-            heights.push(0); // Default to 0 or another safe value
-        }
+        heights.push(height);
     }
     return heights;
 }
+
 
 function createBarsForSound(group, sound, material, initialHeights) {
     const analyser = soundBarsMap.get(sound).analyser;
