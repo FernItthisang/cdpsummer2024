@@ -51,9 +51,9 @@ function init() {
 
 function createDynamicGrid() {
     const audioFiles = [
-        'asset/sound/noisy street.mp3', 'asset/sound/tuk tuk.mp3', 'asset/sound/market restaurant.mp3',
-        'asset/sound/indoor market.mp3', 'asset/sound/chanbuying.mp3', 'asset/sound/bkk musical instrument stall.mp3',
-        'asset/sound/fruit seller.mp3', 'asset/sound/lumphini selected.mp3', 'asset/sound/seafood.mp3'
+        'noisy street.mp3', 'tuk tuk.mp3', 'market restaurant.mp3',
+        'indoor market.mp3', 'chanbuying.mp3', 'bkk musical instrument stall.mp3',
+        'fruit seller.mp3', 'lumphini selected.mp3', 'seafood.mp3'
     ];
 
     const gridSize = 3;
@@ -126,7 +126,7 @@ function createProgressBar() {
 }
 
 function startProgress() {
-    const duration = 10000; // 10 seconds
+    const duration = 5000; // 10 seconds
     const interval = 50; // Update every 50 ms for smoother progress
     let elapsed = 0;
 
@@ -143,7 +143,7 @@ function startProgress() {
             // Introduce a slight delay to ensure sounds have paused
             setTimeout(() => {
                 navigateToStory(); // Navigate after sounds are paused
-            }, 1000); // 0.5-second delay before playing video
+            }, 500); // 0.5-second delay before playing video
         }
     }, interval);
 }
