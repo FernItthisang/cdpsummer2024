@@ -32,14 +32,7 @@ function playVideoWhenInView() {
     });
 }
 
-// Wait for a user interaction before initializing video play logic
-function setupVideoInteraction() {
-    document.addEventListener('click', function() {
-        playVideoWhenInView();
-    }, { once: true }); // Ensure it only triggers once
-}
-
-// Call the function to set up video play interaction after user interaction
+// Automatically start video logic without requiring user interaction
 document.addEventListener('DOMContentLoaded', function() {
-    setupVideoInteraction();
+    playVideoWhenInView();
 });
