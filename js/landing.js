@@ -143,7 +143,7 @@ function startProgress() {
             // Introduce a slight delay to ensure sounds have paused
             setTimeout(() => {
                 navigateToStory(); // Navigate after sounds are paused
-            }, 500); // 0.5-second delay before playing video
+            }, 5000); // 0.5-second delay before playing video
         }
     }, interval);
 }
