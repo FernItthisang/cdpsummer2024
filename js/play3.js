@@ -526,7 +526,7 @@ function updateButtonPositions() {
         const y = -(vector.y * heightHalf) + heightHalf;
 
         button.style.left = `${x}px`;
-        button.style.top = `${y+ 9620}px`;
+        button.style.top = `${y+ 9655}px`;
     });
 }
 
