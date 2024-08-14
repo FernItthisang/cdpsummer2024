@@ -510,7 +510,7 @@ function updateButtonPositions() {
         const widthHalf = 0.5 * renderer.getContext().canvas.width;
         const heightHalf = 0.5 * renderer.getContext().canvas.height;
 
-        // คำนวณตำแหน่งศูนย์กลางของ barsGroup ใน group
+        // Calculate the center position of the barsGroup within the group
         const barsGroup = group.children.find(child => child instanceof THREE.Group);
         if (barsGroup) {
             barsGroup.updateMatrixWorld();
@@ -520,13 +520,16 @@ function updateButtonPositions() {
             vector.setFromMatrixPosition(group.matrixWorld);
         }
 
+        // Project the 3D position into 2D space
         vector.project(camera);
 
+        // Calculate the screen position
         const x = (vector.x * widthHalf) + widthHalf;
         const y = -(vector.y * heightHalf) + heightHalf;
 
+        // Update button position
         button.style.left = `${x}px`;
-        button.style.top = `${y+ 9665}px`;
+        button.style.top = `${y+8900}px`;
     });
 }
 

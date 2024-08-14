@@ -61,7 +61,7 @@ button {
 
 .overlayImage {
     width: 100px;
-    height: auto;
+    height: 80px;
     display: none; /* Initially hidden */
 }
 
