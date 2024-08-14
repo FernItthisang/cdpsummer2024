@@ -11,12 +11,77 @@
   <link href="https://gsapp-cdp.github.io/colloquium-1-2024/normalize.css" rel="stylesheet" />
   <link href="https://gsapp-cdp.github.io/colloquium-1-2024/main.css" rel="stylesheet" />
   
-  <link href="style/style.css" rel="stylesheet" />
-  
+  <!-- <link href="style/style.css" rel="stylesheet" /> -->
+  <style>
+    /* CSS style sheet specific to a single student page. */
+
+article>h1:first-child {
+  color: blue;
+}
+
+/* Side Navigation */
+#sideNav {
+    position: fixed;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#sideNav .nav-line {
+    width: 20px;
+    height: 2px;
+    background-color: white;
+    margin: 20px 0;
+    position: relative;
+    transition: width 0.3s ease; /* Smooth transition for the line width */
+}
+
+/* Longer line for current page */
+#sideNav .nav-line.current {
+    width: 40px;
+}
+
+/* Extend line on hover */
+#sideNav .nav-line:hover {
+    width: 40px;
+}
+
+#sideNav .nav-line:hover::after {
+    content: attr(data-title);
+    position: absolute;
+    left: 45px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    font-family: 'Jersey 20', sans-serif;
+}
+
+
+  </style>
   <title>Fern Itthisang</title>
 </head>
 
 <body>
+  <div id="sideNav">
+    <a href="index.html">
+        <div class="nav-line" data-title="VocaLocal"></div>
+    </a>
+    <a href="1.html">
+        <div class="nav-line current" data-title="Work"></div>
+    </a>
+    <a href="2.html">
+        <div class="nav-line" data-title="Profile"></div>
+    </a>
+</div>
+
   <header>
     <h1>
       <a href="https://www.arch.columbia.edu/" target="_blank">
