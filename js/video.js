@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 
 let contextStarted = false;
+let interactionOccurred = false;
 
 // Function to start the audio context
 function startAudioContext() {
@@ -44,23 +45,22 @@ function playVideoWhenInView() {
         });
     }, { threshold: 0.5 }); // Adjust threshold as needed
 
-    // Start observing #story1
-    observer.observe(story1);
-
-    // Add an event listener for when the video ends
-    video.addEventListener('ended', function() {
-        // Hide the first story section
-        story1.style.display = 'none';
-        
-        // Show the end story section
-        const endStory = document.getElementById('endstory');
-        if (endStory) {
-            endStory.style.display = 'block';
-        }
-    });
+    // Start observing #story1 only after minimal interaction
+    if (interactionOccurred) {
+        observer.observe(story1);
+    }
 }
 
-// Automatically start video logic when the page is loaded
+// Automatically start video logic after mouse enters the story1 section
 document.addEventListener('DOMContentLoaded', function() {
-    playVideoWhenInView();
+    function onMouseEnter() {
+        interactionOccurred = true;
+        playVideoWhenInView();
+        
+        // Remove mouseenter event listener after the first interaction
+        document.getElementById('story1').removeEventListener('mouseenter', onMouseEnter);
+    }
+
+    // Listen for mouseenter event on the #story1 section
+    document.getElementById('story1').addEventListener('mouseenter', onMouseEnter);
 });
