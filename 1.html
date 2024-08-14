@@ -14,9 +14,15 @@
   <!-- <link href="style/style.css" rel="stylesheet" /> -->
   <style>
     /* CSS style sheet specific to a single student page. */
-
+    body, h1, h2, h3, h4, h5, p {
+    font-family: 'Jersey 20', sans-serif;
+    color: white; /* Set font color to white */
+    margin: 0;
+    text-align: left;
+    background-color: black;
+}
 article>h1:first-child {
-  color: blue;
+  color: white;
 }
 
 /* Side Navigation */
@@ -35,7 +41,7 @@ article>h1:first-child {
 #sideNav .nav-line {
     width: 20px;
     height: 2px;
-    background-color: blue;;
+    background-color: white;;
     margin: 20px 0;
     position: relative;
     transition: width 0.3s ease; /* Smooth transition for the line width */
@@ -57,7 +63,7 @@ article>h1:first-child {
     left: 45px;
     top: 50%;
     transform: translateY(-50%);
-    color: blue;;
+    color: white;;
     padding: 5px 10px;
     border-radius: 5px;
     white-space: nowrap;
@@ -79,11 +85,14 @@ article>h1:first-child {
   }
 
   .horizontal-images {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: inline-block;
+   
     margin: 0;
     padding: 0;
+  }
+  .horizontal-images-1{
+    justify-content: center;
+    align-items: center;
   }
 
   .horizontal-images img {
@@ -94,6 +103,16 @@ article>h1:first-child {
 
   .horizontal-images img:last-child {
     margin-right: 0; /* Remove margin from the last image */
+  }
+  .horizontal-scroll-container {
+  width: 100%; /* Set to the desired width */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  border: 2px solid #000; /* Add a boundary around the container */
+  padding: 10px; /* Add padding if needed */
+  white-space: nowrap; /* Prevent line breaks */
+}
+  .column-layout  {
+    align-items: center;
   }
   </style>
   <title>Fern Itthisang</title>
@@ -145,7 +164,7 @@ article>h1:first-child {
         <ul class="horizontal-list">
           <li><a href="#assignment-1">Systems</a></li>
           <li><a href="#assignment-2">Authorship</a></li>
-          <!-- <li><a href="#assignment-3">3 – Politics</a></li> -->
+          <li><a href="#assignment-3">Politics</a></li>
           <li><a href="#assignment-4">Governance</a></li>
           <!-- <li><a href="#assignment-5">5 – Behavior</a></li> -->
         </ul>
@@ -210,15 +229,18 @@ article>h1:first-child {
 
         <hr>
 
-        <figure class="horizontal-images">
-          <img src="asset/work/image 1.jpg" alt="Image 1">
-          <img src="asset/work/image 2.jpg" alt="Image 2">
-          <img src="asset/work/Frame 1.png" alt="Frame 1">
-          <img src="asset/work/Frame 2.png" alt="Frame 2">
-          <img src="asset/work/Frame 3.png" alt="Frame 3">
-          <img src="asset/work/Frame 4.png" alt="Frame 4">
-          <img src="asset/work/Frame 5.png" alt="Frame 5">
-        </figure>
+        <div class="horizontal-scroll-container">
+          <figure class="horizontal-images">
+            <img src="asset/work/image 1.jpg" alt="Image 1">
+            <img src="asset/work/image 2.jpg" alt="Image 2">
+            <img src="asset/work/Frame 1.png" alt="Frame 1">
+            <img src="asset/work/Frame 2.png" alt="Frame 2">
+            <img src="asset/work/Frame 3.png" alt="Frame 3">
+            <img src="asset/work/Frame 4.png" alt="Frame 4">
+            <img src="asset/work/Frame 5.png" alt="Frame 5">
+          </figure>
+        </div>
+        
         
       <hr>
 <div class="column-layout">
@@ -267,9 +289,15 @@ article>h1:first-child {
         
       </section>
       
-      <!-- <section>
-        <h1 id="assignment-3">3 – Politics</h1>
-      </section> -->
+      <section>
+        <h1 id="assignment-3">Politics</h1>
+
+        <figure class="horizontal-images-1">
+          <img src="asset/sound/politic-placeholder.png">
+        </figure>
+        
+      </section>
+      <hr>
       
       <section>
         <h1 id="assignment-4">Governance</h1>

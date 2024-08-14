@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile Introduction</title>
     <style>
+
+          /* CSS style sheet specific to a single student page. */
+    body, h1, h2, h3, h4, h5, p {
+    font-family: 'Jersey 20', sans-serif;
+    color: white; /* Set font color to white */
+    margin: 0;
+    text-align: left;
+}
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -14,7 +22,12 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #ffffff;
+            background-color: black;
+        }
+        h1{
+            font-size: 4rem;
+            color: white;
+
         }
 
         .container {
@@ -46,10 +59,6 @@
         .title {
             display: flex;
             flex-direction: row;
-            font-size: 4rem;
-            font-weight: bold;
-            line-height: 1.2;
-            margin-bottom: 20px;
         }
 
         .profile-image {
@@ -101,6 +110,7 @@
                 font-size: 1.5rem;
                 text-align: center;
             }
+           
 
             /* Side Navigation */
 #sideNav {
@@ -118,7 +128,7 @@
 #sideNav .nav-line {
     width: 20px;
     height: 2px;
-    background-color: blue;
+    background-color: white;
     margin: 20px 0;
     position: relative;
     transition: width 0.3s ease; /* Smooth transition for the line width */
@@ -140,7 +150,7 @@
     left: 45px;
     top: 50%;
     transform: translateY(-50%);
-    color: blue;
+    color: white;
     padding: 5px 10px;
     border-radius: 5px;
     white-space: nowrap;
@@ -168,12 +178,13 @@
         <span class="emoji">👋</span>My name is Fern and I am a ...
     </div>
     <div class="title">
-        Data Visualizer,<br>
+        <h1>Data Visualizer,<br>
         UX/UI and<br>
-        Interaction Designer
+        Interaction Designer</h1>
         <img src="asset/picture/Profile.webp" alt="Fern's Profile Picture" class="profile-image">
     </div>
 </div>
+<div class="about">
 <div class="about-section">
     <h2>More About Me <span class="emoji">✌️</span></h2>
     <h3>
@@ -184,6 +195,7 @@
     <p class="highlight">
         I’m an architect who visualizes space and I’m the data visualizer who visualizes data
     </p>
+</div>
 </div>
 </body>
 </html>
