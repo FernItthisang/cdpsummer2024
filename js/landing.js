@@ -126,7 +126,7 @@ function createProgressBar() {
 }
 
 function startProgress() {
-    const duration = 5000; // 10 seconds
+    const duration = 10000; // 10 seconds
     const interval = 50; // Update every 50 ms for smoother progress
     let elapsed = 0;
 
