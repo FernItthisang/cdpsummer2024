@@ -35,7 +35,7 @@ article>h1:first-child {
 #sideNav .nav-line {
     width: 20px;
     height: 2px;
-    background-color: white;
+    background-color: blue;;
     margin: 20px 0;
     position: relative;
     transition: width 0.3s ease; /* Smooth transition for the line width */
@@ -57,14 +57,44 @@ article>h1:first-child {
     left: 45px;
     top: 50%;
     transform: translateY(-50%);
-    color: white;
+    color: blue;;
     padding: 5px 10px;
     border-radius: 5px;
     white-space: nowrap;
     font-family: 'Jersey 20', sans-serif;
 }
 
+.horizontal-list {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+  }
 
+  .horizontal-list li {
+    margin-right: 20px;
+  }
+
+  .horizontal-list li a {
+    text-decoration: none;
+  }
+
+  .horizontal-images {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  .horizontal-images img {
+    max-width: 100%;
+    height: 300px;
+    margin-right: 10px; /* Adjust this value for spacing between images */
+  }
+
+  .horizontal-images img:last-child {
+    margin-right: 0; /* Remove margin from the last image */
+  }
   </style>
   <title>Fern Itthisang</title>
 </head>
@@ -112,17 +142,17 @@ article>h1:first-child {
   
       <section>
         <h2>Table of Contents</h2>
-        <ul>
-          <li><a href="#assignment-1">1 – Systems</a></li>
-          <li><a href="#assignment-2">2 – Authorship</a></li>
-          <li><a href="#assignment-3">3 – Politics</a></li>
-          <li><a href="#assignment-4">4 – Governance</a></li>
-          <li><a href="#assignment-5">5 – Behavior</a></li>
+        <ul class="horizontal-list">
+          <li><a href="#assignment-1">Systems</a></li>
+          <li><a href="#assignment-2">Authorship</a></li>
+          <!-- <li><a href="#assignment-3">3 – Politics</a></li> -->
+          <li><a href="#assignment-4">Governance</a></li>
+          <!-- <li><a href="#assignment-5">5 – Behavior</a></li> -->
         </ul>
       </section>
   
       <section>
-        <h1 id="assignment-1">1 – Systems</h1>
+        <h1 id="assignment-1">Systems</h1>
         <h2>Bike-sharing System in NYC</h2>
         <p>Purpose: To provide an accessible, sustainable, and efficient mode of transportation for 
           city residents and visitors.
@@ -179,80 +209,78 @@ article>h1:first-child {
         </p>
 
         <hr>
-  
-        <figure>
-          <img src="asset/work/image 1.jpg">
-          <img src="asset/work/image 2.jpg">
-        </figure>
-  
-        <hr>
-        
-        <figure>
-          <img src="asset/work/Frame 1.png">
-          <img src="asset/work/Frame 2.png">
-          <img src="asset/work/Frame 3.png">
-          <img src="asset/work/Frame 4.png">
-          <img src="asset/work/Frame 5.png">
+
+        <figure class="horizontal-images">
+          <img src="asset/work/image 1.jpg" alt="Image 1">
+          <img src="asset/work/image 2.jpg" alt="Image 2">
+          <img src="asset/work/Frame 1.png" alt="Frame 1">
+          <img src="asset/work/Frame 2.png" alt="Frame 2">
+          <img src="asset/work/Frame 3.png" alt="Frame 3">
+          <img src="asset/work/Frame 4.png" alt="Frame 4">
+          <img src="asset/work/Frame 5.png" alt="Frame 5">
         </figure>
         
-        <hr>
+      <hr>
+<div class="column-layout">
+  <h2>Rube Goldberg</h2>
+  <p>By Fern - Genda - Suji</p>
 
-        <h2>Rube goldberg</h2>
-      - Fern
-      - Suzy
-      - Genda
 
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/mKvLZF7sqI8?si=SqH2gKMoz1thXYIE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/mKvLZF7sqI8?si=SqH2gKMoz1thXYIE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
       </section>
       <hr>
 
         
       <section>
-      <p> As we explore the blend of technology and human creativity, the idea of "authorship" is key. Inspired by various readings and reflecting on my own work, I aim to create a philosophy that balances innovation, user empowerment, and ethical considerations.
-Lock-In vs. Flexibility in Technology
-Jaron Lanier's concept of "lock-in" warns about rigid technological standards limiting creativity and innovation. This aligns with my tech development approach. Some standards are essential for consistency and interoperability, but too much rigidity stifles creativity and user agency. Useful lock-in includes standards and protocols for data security and interoperability, and core functionality standardization to ensure consistent user experiences. Flexibility is better in user interfaces, accommodating different user needs, and creative tools, allowing customization for innovative outcomes.
-Authorship Models for Various Audiences
-Users should control customization, like modifying web design templates. Developers must ensure usability and security without restricting creativity, offering APIs and plugins for extended functionality. Content from existing datasets must acknowledge original authors, maintaining transparency and ethical standards in AI models.
-Data as Material and Its Limitations
-Data serves as the fundamental material for digital creation. Its quality, accessibility, and structure define creative possibilities. While data provides a rich resource and versatility, it has limitations: poor quality or biased data can mislead, accessibility disparities can hinder innovation, and ethical concerns around privacy and ownership are significant.
-Credit and Responsibility
-Users should retain full copyright over their creations, with platforms facilitating attribution. AI shouldn’t hold copyrights; creators of AI and training data should be acknowledged. Developers must ensure ethical tool use, users should understand AI-generated content's implications, and businesses must maintain transparency in data use.
-Control and Power Dynamics
-Users should control their data and content, developers should oversee core functionality and ethical guidelines, and regulatory bodies should ensure industry standards. Control should be exercised through customizable settings, best practices in development, and compliance checks.
-Examples of Authorship Models
-Wikipedia promotes collaborative authorship and democratizes knowledge creation. GitHub encourages open-source collaboration and rapid innovation. Medium supports user-generated content and diverse voices. Integrating these elements fosters inclusive, flexible, and ethical technologies that empower users and value their contributions.
-
-        </p>
-        
-        <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FSbRCjgTDOoV62Q9dqEVpkf%2FZine-Assignment%3Fpage-id%3D0%3A1%26node-id%3D46-24%26viewport%3D857%2C1297%2C0.15%26t%3Desi8F8MDVE0eYsvP-1%26scaling%3Dscale-down%26content-scaling%3Dfixed%26starting-point-node-id%3D46%3A24" allowfullscreen></iframe>
-        
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/ZhHwTqa2q_U?si=8wmfPhNQYJcxFaFd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-        <hr>
-        
-        <figure>
-          <img src="https://picsum.photos/1201/801">
-        </figure>
-      </section>
+    
       
       
       
       <section>
-        <h1 id="assignment-2">2 – Systems</h1>
+        <h1 id="assignment-2">Authorship</h1>
+        <p>By Fern - Pear - Kit -Julia</p>
+        <p> As we explore the blend of technology and human creativity, the idea of "authorship" is key. Inspired by various readings and reflecting on my own work, I aim to create a philosophy that balances innovation, user empowerment, and ethical considerations.
+          Lock-In vs. Flexibility in Technology
+          Jaron Lanier's concept of "lock-in" warns about rigid technological standards limiting creativity and innovation. This aligns with my tech development approach. Some standards are essential for consistency and interoperability, but too much rigidity stifles creativity and user agency. Useful lock-in includes standards and protocols for data security and interoperability, and core functionality standardization to ensure consistent user experiences. Flexibility is better in user interfaces, accommodating different user needs, and creative tools, allowing customization for innovative outcomes.
+          Authorship Models for Various Audiences
+          Users should control customization, like modifying web design templates. Developers must ensure usability and security without restricting creativity, offering APIs and plugins for extended functionality. Content from existing datasets must acknowledge original authors, maintaining transparency and ethical standards in AI models.
+          Data as Material and Its Limitations
+          Data serves as the fundamental material for digital creation. Its quality, accessibility, and structure define creative possibilities. While data provides a rich resource and versatility, it has limitations: poor quality or biased data can mislead, accessibility disparities can hinder innovation, and ethical concerns around privacy and ownership are significant.
+          Credit and Responsibility
+          Users should retain full copyright over their creations, with platforms facilitating attribution. AI shouldn’t hold copyrights; creators of AI and training data should be acknowledged. Developers must ensure ethical tool use, users should understand AI-generated content's implications, and businesses must maintain transparency in data use.
+          Control and Power Dynamics
+          Users should control their data and content, developers should oversee core functionality and ethical guidelines, and regulatory bodies should ensure industry standards. Control should be exercised through customizable settings, best practices in development, and compliance checks.
+          Examples of Authorship Models
+          Wikipedia promotes collaborative authorship and democratizes knowledge creation. GitHub encourages open-source collaboration and rapid innovation. Medium supports user-generated content and diverse voices. Integrating these elements fosters inclusive, flexible, and ethical technologies that empower users and value their contributions.
+          
+          </p>
+                  
+                  
+                  <div class="horizontal-layout">
+                    <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FSbRCjgTDOoV62Q9dqEVpkf%2FZine-Assignment%3Fpage-id%3D0%3A1%26node-id%3D46-24%26viewport%3D857%2C1297%2C0.15%26t%3Desi8F8MDVE0eYsvP-1%26scaling%3Dscale-down%26content-scaling%3Dfixed%26starting-point-node-id%3D46%3A24" allowfullscreen></iframe>
+                  
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/ZhHwTqa2q_U?si=8wmfPhNQYJcxFaFd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  </div>
+
+                  <hr>
+        
       </section>
       
-      <section>
+      <!-- <section>
         <h1 id="assignment-3">3 – Politics</h1>
-      </section>
+      </section> -->
       
       <section>
-        <h1 id="assignment-4">4 – Governance</h1>
+        <h1 id="assignment-4">Governance</h1>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/Jbs1z6t4-SQ?si=TQbxpwNMOjjU9tRo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <p> Cultural Soundscape Pathway:<br> An abstract, interactive installation in public spaces, designed to immerse users in the cultural heritage of Bangkok through a journey that combines visual and auditory experiences. Each step along the pathway triggers a dynamic blend of images and sounds, creating a living dictionary of the community's cultural memory and governance.</p>
+      Fern - Pear
       </section>
       
-      <section>
+      <!-- <section>
         <h1 id="assignment-5">5 – Behavior</h1>
-      </section>
+      </section> -->
     </article>
   </main>
   
