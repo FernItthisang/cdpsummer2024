@@ -446,7 +446,7 @@ function createButton(group, text) {
     button.style.position = 'absolute';
     button.style.backgroundColor = 'transparent'; // Make the button background transparent
     button.style.border = 'none'; // Remove border
-    button.style.color = 'rgba(255, 255, 255, 10)'; // Make the text transparent
+    button.style.color = 'rgba(255, 255, 255, 0)'; // Make the text transparent
     button.style.cursor = 'pointer'; // Optionally, change the cursor to pointer
 
     let isPlaying = false;
