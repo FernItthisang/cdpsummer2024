@@ -2,17 +2,14 @@ import * as THREE from 'three';
 
 let contextStarted = false;
 
-// Function to start audio context and play the video when minimal interaction occurs
-function startAudioAndVideo() {
+// Function to start the audio context
+function startAudioContext() {
     if (!contextStarted) {
         const audioContext = THREE.AudioContext.getContext();
         audioContext.resume().then(() => {
             console.log('AudioContext resumed');
         });
         contextStarted = true;
-        
-        // Trigger the video playback logic
-        playVideoWhenInView();
     }
 }
 
@@ -20,16 +17,22 @@ function startAudioAndVideo() {
 function playVideoWhenInView() {
     const video = document.getElementById('firstVideo');
     const story1 = document.getElementById('story1');
-    
-    // Show the first story section
-    if (story1) {
-        story1.style.display = 'block';
+
+    if (!video || !story1) {
+        console.error('Required elements not found');
+        return;
     }
+
+    // Show the first story section
+    story1.style.display = 'block';
 
     // Create an IntersectionObserver to observe when #story1 enters the viewport
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                // Start the audio context when story1 comes into view
+                startAudioContext();
+
                 // Play the video when #story1 is in view
                 video.play().catch((error) => {
                     console.error('Video playback failed:', error);
@@ -57,9 +60,7 @@ function playVideoWhenInView() {
     });
 }
 
-// Automatically start audio context and video logic after minimal interaction
+// Automatically start video logic when the page is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Listen for minimal user interaction like a scroll or focus event
-    window.addEventListener('scroll', startAudioAndVideo, { once: true });
-    window.addEventListener('focus', startAudioAndVideo, { once: true });
+    playVideoWhenInView();
 });
