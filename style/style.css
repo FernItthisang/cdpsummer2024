@@ -355,26 +355,27 @@ p{
 /* For Archive */
  /* Content Area */
  #archive {
-    margin-left: 220px;
     padding: 20px;
+    gap: 40px;
   }
-  .tabs-container {
-
-align-items:center ;}
 
 .horizontal-list {
+    margin: 0; /* No margin around tab content */
+
     list-style-type: none;
     padding: 0;
     display: flex;
 }
 
 .horizontal-list.tabs li {
+    margin: 0; /* No margin around tab content */
     width: 150px;
     font-family: 'Jersey 20', sans-serif;
     text-align: center;
 }
 
 .horizontal-list.tabs li a {
+    margin: 0; /* No margin around tab content */
     display: block;
     padding: 10px 15px;
     border: 1px solid white; /* Border on all sides */
@@ -383,6 +384,7 @@ align-items:center ;}
 }
 
 .horizontal-list.tabs li a.active {
+    margin: 0; /* No margin around tab content */
     border-top: 2px solid #fff; /* Keep only the top border when active */
     border-right: 1px solid white; /* Maintain right border */
     border-left: 1px solid white;  /* Maintain left border */
@@ -391,10 +393,10 @@ align-items:center ;}
 }
 
 .horizontal-list.tabs li a:hover {
+    margin: 0; /* No margin around tab content */
     border-top: 2px solid #fff; /* Keep top border when hovered */
     border-right: 1px solid white; /* Maintain right border */
     border-left: 1px solid white;  /* Maintain left border */
-    border-bottom: 1px solid white; /* Keep bottom border when hovered */
     background-color: transparent; /* Ensure background doesn't interfere */
 }
 
@@ -402,6 +404,7 @@ align-items:center ;}
 
   /* Tab Content Styling */
   .tab-content {
+    margin: 0; /* No margin around tab content */
     align-items: center;
     justify-content: center;
     display: none;
@@ -415,6 +418,12 @@ align-items:center ;}
   .tab-content.active {
     display: block;
   }
+  #boundary{
+    margin: 0; /* No margin around tab content */
+border-left: 2px solid white;
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+    border-top: none; /* No border at the top */  }
 
   .horizontal-scroll-container {
     overflow-x: auto; /* Enable horizontal scrolling */
@@ -510,3 +519,4 @@ footer nav a {
 footer nav a:hover {
     text-decoration: underline; /* Underline on hover */
 }
+#assignment-0,#assignment-1,#assignment-2,#assignment-3,#assignment-4,#assignment-5{width: 856px;}

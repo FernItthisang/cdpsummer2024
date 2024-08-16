@@ -72,7 +72,7 @@ function createDynamicGrid(container, soundContainer) {
 
     const imageFiles = [
         'asset/picture/noise.webp', 'asset/picture/6.jpg', 'asset/picture/market.jpeg',
-        'asset/picture/market.jpeg', 'asset/picture/9.jpeg', 'asset/picture/images.jpeg',
+        'asset/picture/market restaurant.webp', 'asset/picture/9.jpeg', 'asset/picture/images.jpeg',
         'asset/picture/8.jpeg', 'asset/picture/temple.jpg', 'asset/picture/seafood.jpeg',
     ];
 
