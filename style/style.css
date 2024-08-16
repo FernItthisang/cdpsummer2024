@@ -5,7 +5,6 @@ body {
     align-items: center;
     justify-content: center;
     background-color: black;
-
 }
 h1, h2, h3, h4, h5, p {
     font-family: 'Jersey 20', sans-serif;
@@ -170,10 +169,10 @@ h3 {
     overflow: hidden;
 }
 h1 {
-    font-size: 5rem;
+    font-size: 6rem;
     white-space: wrap;
     overflow: hidden;
-    color: #f0f0f0;
+    color: white;
 }
 
 h2{
@@ -352,4 +351,162 @@ p{
     border-radius: 5px;
     white-space: nowrap;
     font-family: 'Jersey 20', sans-serif;
+}
+/* For Archive */
+ /* Content Area */
+ #archive {
+    margin-left: 220px;
+    padding: 20px;
+  }
+  .tabs-container {
+
+align-items:center ;}
+
+.horizontal-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+}
+
+.horizontal-list.tabs li {
+    width: 150px;
+    font-family: 'Jersey 20', sans-serif;
+    text-align: center;
+}
+
+.horizontal-list.tabs li a {
+    display: block;
+    padding: 10px 15px;
+    border: 1px solid white; /* Border on all sides */
+    text-decoration: none;
+    color: white;
+}
+
+.horizontal-list.tabs li a.active {
+    border-top: 2px solid #fff; /* Keep only the top border when active */
+    border-right: 1px solid white; /* Maintain right border */
+    border-left: 1px solid white;  /* Maintain left border */
+    border-bottom: none; /* Remove bottom border for active tab */
+    background-color: transparent; /* Ensure background doesn't interfere */
+}
+
+.horizontal-list.tabs li a:hover {
+    border-top: 2px solid #fff; /* Keep top border when hovered */
+    border-right: 1px solid white; /* Maintain right border */
+    border-left: 1px solid white;  /* Maintain left border */
+    border-bottom: 1px solid white; /* Keep bottom border when hovered */
+    background-color: transparent; /* Ensure background doesn't interfere */
+}
+
+
+
+  /* Tab Content Styling */
+  .tab-content {
+    align-items: center;
+    justify-content: center;
+    display: none;
+    padding: 20px;
+    background-color: black;
+    overflow-y: auto; /* Enable vertical scrolling */
+    height: 500px; /* Set a fixed height for consistency */
+    width: 800px;
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+
+  .horizontal-scroll-container {
+    overflow-x: auto; /* Enable horizontal scrolling */
+  }
+
+  .horizontal-images {
+    display: flex;
+    width: auto;
+    height: 200px;
+  }
+
+  .horizontal-images img {
+    margin-right: 10px;
+  }
+  .column-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 20px 0; /* Optional: Adds some margin around the layout */
+}
+
+.column-layout h3,
+.column-layout p {
+    margin: 10px 0; /* Optional: Adjust spacing between elements */
+}
+
+.column-layout iframe {
+    margin-top: 20px; /* Optional: Adjust spacing above the iframe */
+}
+
+#text-intro{
+    padding-top: 20px;
+}
+
+/* Footer styling */
+footer {
+    width: 1000px;
+    height: auto;
+    background-color: black; /* Dark background color */
+    color: white; /* White text color */
+    padding: 40px; /* Some padding */
+    display: flex;
+    justify-content: space-between; /* Space between the left and right content */
+    align-items: flex-start; /* Align items to the top */
+}
+
+/* Left side content (Columbia GSAPP, M.S. Computational Design Practices, Breadcrumbs) */
+footer .left-content {
+    display: flex;
+    flex-direction: column; /* Arrange items in a column */
+    align-items: flex-start; /* Align items to the left */
+    font-family: 'Jersey 20', sans-serif; /* Change font */
+}
+
+footer h3 {
+    margin: 10px 0; /* Margin for the heading */
+    font-weight: bold; /* Make it bold */
+    font-size: 1.2em; /* Adjust font size */
+}
+
+footer h4 {
+    margin: 5px 0; /* Margin for the subheading */
+    font-weight: normal; /* Normal font weight */
+    font-size: 1em; /* Adjust font size */
+}
+
+footer h4 a {
+    color: white; /* Link color */
+    text-decoration: none; /* Remove underline */
+}
+
+footer h4 a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Footer navigation styling (right side) */
+/* Footer navigation styling (right side) */
+footer nav {
+    display: flex;
+    flex-direction: column; /* Arrange items in a column */
+    align-items: flex-end; /* Align items to the right */
+    font-family: 'Jersey 20', sans-serif; /* Change font */
+}
+
+footer nav a {
+    margin: 5px 0; /* Space between nav links vertically */
+    color: white; /* Link color */
+    text-decoration: none; /* Remove underline */
+}
+
+footer nav a:hover {
+    text-decoration: underline; /* Underline on hover */
 }
