@@ -335,15 +335,23 @@ function createButton(group, text) {
         const textMesh = group.userData.textMesh;
         const overlayImage = group.userData.overlayImage;
 
-        if (sound && !isPlaying) {
-            sound.play();
-            isPlaying = true;
-            if (textMesh) textMesh.visible = true;
-            if (overlayImage) {
-                overlayImage.style.display = 'block';
-                console.log('Image displayed');
+        if (sound) {
+            if (!isPlaying) {
+                sound.play();
+                isPlaying = true;
+                if (textMesh) textMesh.visible = true;
+                if (overlayImage) {
+                    overlayImage.style.display = 'block';
+                    console.log('Image displayed');
+                }
+                visualizeSound3D(sound, group);
+            } else {
+                sound.stop();
+                isPlaying = false;
+                if (textMesh) textMesh.visible = false;
+                if (overlayImage) overlayImage.style.display = 'none';
+                console.log('Image hidden');
             }
-            visualizeSound3D(sound, group);
         }
     });
 
@@ -374,7 +382,6 @@ function createButton(group, text) {
     container.appendChild(button);
     buttons.push({ group, button });
 }
-
 
 function updateButtonPositions() {
     buttons.forEach(({ group, button }) => {
