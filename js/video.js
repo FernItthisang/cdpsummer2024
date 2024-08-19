@@ -71,3 +71,15 @@ document.addEventListener('DOMContentLoaded', function() {
     addScrollText('story1');
 
 });
+
+ // Scroll to the backgroundContainer on page load
+
+ window.addEventListener('load', function() {
+    const currentSection = document.getElementById('content');
+    
+    // Check if we are not in the title section
+    if (!currentSection || !currentSection.getBoundingClientRect().top === 0) {
+        document.getElementById('backgroundContainer').scrollIntoView({ behavior: 'smooth' });
+    }
+});
+
